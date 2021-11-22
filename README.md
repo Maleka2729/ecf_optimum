@@ -21,13 +21,25 @@ Il souhaite aussi, rendre son site internet accessible sur mobile. Egalement, un
 
 ## Spécifications technique
   - Le projet sera réalisé via une solution CMS « WordPress » pour rendre le site « OPTIMUM » accessible sur pc et sur le téléphone.
-  - 
+  - Concernant la base de données, nous utiliserons mysql Workbench.
 
 ## Plan du site
   - Accueil,
-  - Les cours, 
-  - Les offres, 
-  - Réservations, 
-  - Contact,
+    - Présentation du site
+    - Présentation des séances de yoga
+  - Les cours : 
+    - Cours particuliers :
+      - Renforcement musculaire 
+      - Préparation physique
+    - Cours collectifs :
+      - Cardio training
+      - Cross training
+  - Les offres : 
+    -  Accès à la salle de musculation
+  - Réservations : formulaire de réservation  
+  - Contact : formulaire de contact
+
+## Choix navigation sur le site : 
+  - A FAIRE [....]
 
 
