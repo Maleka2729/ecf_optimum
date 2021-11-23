@@ -26,16 +26,12 @@ Il souhaite aussi, rendre son site internet accessible sur mobile. Egalement, un
 ## Plan du site
   - Accueil,
     - Présentation du site
-    - Présentation des séances de yoga
   - Les cours : 
-    - Cours particuliers :
-      - Renforcement musculaire 
-      - Préparation physique
-    - Cours collectifs :
-      - Cardio training
-      - Cross training
+    - Cours particuliers : Présentation renforcement musculaire + préparation physique
+    - Cours collectifs : Présentation cardio training + cross training
+    - Séance : Présentation séance Yoga
   - Les offres : 
-    -  Accès à la salle de musculation
+    -  Accès à la salle de musculation : abonnement mensuel + annuel
   - Réservations : formulaire de réservation  
   - Contact : formulaire de contact
 
