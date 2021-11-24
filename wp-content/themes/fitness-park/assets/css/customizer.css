@@ -1,0 +1,588 @@
+/**
+ * Additional Styles
+*/
+.fp-repeater-field-control{
+  background: #FFF;
+  margin-bottom: 12px;
+  display: block;
+}
+.fp-repeater-footer{
+  margin-top: 15px;
+  text-align: right;
+}
+.fp-repeater-field-control:first-child .fp-repeater-footer{
+  display: none;
+}
+.fp-repeater-field-title{
+  padding: 13px 15px;
+  line-height: 1;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-size: 1em;
+  border: 1px solid #e5e5e5;
+  cursor: move;
+  position: relative;
+  border-bottom: 0;
+}
+#customize-theme-controls .fp-repeater-field-title.accordion-section-title:after {
+  content: "\f142";
+  font: 400 20px/1 dashicons;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1px 2px 1px 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.fp-repeater-field-control.expanded .fp-repeater-field-title:after{
+  content: "\f140";
+}
+.fp-repeater-fields{
+  padding: 0 10px 25px;
+  border-top: none;
+  line-height: 16px;
+  border: 1px solid #e5e5e5;
+  box-shadow: 0 1px 1px rgba(0,0,0,.04);
+  display: none;
+}
+.fp-repeater-fields .customize-control-title{
+  margin-top: 10px;
+}
+.fp-repeater-field-control.expanded .fp-repeater-fields{
+  display: block;
+}
+.fp-add-control-field {
+  float: right;
+}
+.fp-add-control-field:before {
+    content: "\f132";
+    display: inline-block;
+    position: relative;
+    left: -2px;
+    top: -1px;
+    font: 400 18px/1 dashicons;
+    vertical-align: middle;
+}
+.fp-fields textarea{
+  width: 100%;
+  min-height: 100px;
+}
+.fp-fields select{
+  width: 100%;
+  min-width: none;
+}
+.fp-type-checkbox{
+  margin-top: 10px;
+}
+.fp-type-checkbox label{
+    line-height: 20px;
+    display: block;
+    margin-left: 24px;
+    padding-top: 6px;
+}
+.fp-type-checkbox input[type=checkbox]{
+    margin-right: 8px;
+    margin-left: -24px;
+}
+.fp-type-selector .selector-labels{
+  margin: 0 -5px;
+}
+.fp-type-selector .selector-labels label{
+  display: inline-block;
+  padding: 10px 5px 0;
+  position: relative;
+  max-width: 50%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.fp-type-selector .selector-labels label img{
+  vertical-align: middle;
+}
+.fp-type-selector .selector-labels label.selector-selected:after{
+  content: "";
+  height: 35px;
+  width: 35px;
+  right: 0;
+  top: 0;
+  position: absolute;
+  background: url(images/selected.png) no-repeat right top;
+}
+.fp-type-radio .radio-labels label{
+  display: block;
+  padding: 5px 0;
+}
+
+
+.fp-type-icon{
+  overflow: hidden;
+}
+
+.fp-selected-icon{
+  background: #F6F6F6;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border: 1px solid #EEE;
+  position: relative;
+  margin-right: 45px;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.fp-selected-icon span{
+  position: absolute;
+  background: #F6F6F6;
+  right: -45px;
+  top: -1px;
+  height: 45px;
+  width: 45px;
+  border: 1px solid #EEE;
+  font-size: 20px;
+}
+
+.fp-icon-list{
+  height: 215px;
+  overflow-y: scroll;
+  font-size: 18px;
+  border: 1px solid #EEE;
+  border-right: 0;
+  border-top: 0;
+  padding-bottom: 4%;
+  display: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.fp-icon-list li{
+  float: left;
+  margin: 4% 3% 0;
+  height: 40px;
+  width: 16%;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #EEE;
+}
+
+.fp-icon-list li:hover{
+  background: #333;
+  border: 1px solid #333;
+  color: #FFF;
+}
+
+.fp-icon-list li.icon-active{
+  background: #0073aa;
+  border: 1px solid #0073aa;
+  color: #FFF;
+}
+
+/*font-awesome*/
+.fp-repeater-selected-icon{
+  background: #F6F6F6;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  border: 1px solid #EEE;
+  position: relative;
+  margin-right: 45px;
+  cursor: pointer;
+  font-size: 28px;
+}
+
+.fp-repeater-selected-icon span{
+  position: absolute;
+  background: #F6F6F6;
+  right: -45px;
+  top: -1px;
+  height: 45px;
+  width: 45px;
+  border: 1px solid #EEE;
+  font-size: 20px;
+}
+
+
+.fp-repeater-icon-list{
+  height: 215px;
+  overflow-y: scroll;
+  font-size: 18px;
+  border: 1px solid #EEE;
+  border-right: 0;
+  border-top: 0;
+  padding-bottom: 4%;
+  display: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.fp-repeater-icon-list li{
+  float: left;
+  margin: 4% 3% 0;
+  height: 40px;
+  width: 16%;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #EEE;
+}
+
+.fp-repeater-icon-list li:hover{
+  background: #333;
+  border: 1px solid #333;
+  color: #FFF;
+}
+
+.fp-repeater-icon-list li.icon-active{
+  background: #0073aa;
+  border: 1px solid #0073aa;
+  color: #FFF;
+}
+
+.customize-control-checkbox-multiple .customize-control-title{
+  padding: 5px;
+  border-bottom: 1px solid #ddd;
+  border-left: 4px solid #fff;
+  -webkit-transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
+  transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
+  color: #0073aa;
+  background: #f3f3f5;
+  border-left-color: #0073aa;
+}
+.customize-control-checkbox-multiple ul{
+  padding: 5px;
+  border: 2px solid #f3f3f5;
+}
+
+
+.customize-control-title {
+    color: #0073aa;
+    border-bottom: 1px solid #eee;
+    border-top: 1px solid #eee;
+    padding: 10px 10px 11px 14px;
+    line-height: 21px;
+    background: #FFF;
+    margin: 0 -12px 0;
+    border-left: 4px solid #0073aa;
+    margin-bottom: 15px;
+}
+
+.customize-pane-parent .control-section .accordion-section-title:before{
+    font-family: dashicons;
+    content: "\f103";
+    font-size: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+#accordion-panel-medical_heed_general_settings_panel .accordion-section-title:before{
+    content: "\f111";
+}
+#accordion-section-fitness_park_banner_slider .accordion-section-title:before{
+    content: "\f161";
+}
+#accordion-panel-fitness_park_homepage .accordion-section-title:before{
+    content: "\f102";
+}
+#accordion-section-fitness_park_enable_frontpage .accordion-section-title:before{
+    content: "\f147";
+}
+#accordion-section-fitness_park_sidebar_section .accordion-section-title:before{
+    content: "\f489";
+}
+#accordion-panel-nav_menus .accordion-section-title:before{
+    content: "\f333";
+}
+#accordion-panel-widgets .accordion-section-title:before{
+    content: "\f116";
+}
+#accordion-panel-widgets .accordion-section-title:before{
+    content: "\f116";
+}
+#accordion-section-custom_css .accordion-section-title:before{
+    content: "\f499";
+}
+
+
+.fp-implink{
+  background: #0073aa;
+  padding: 8px;
+  color: #FFF !important;
+  text-align: center;
+  display: block;
+  margin-top: 5px;
+  line-height: 1.2;
+  box-shadow: none;
+  font-style: normal;
+  text-decoration: none;
+}
+
+.fp-implink:hover{
+  background: #000;
+}
+
+/**
+ * Switch Control
+*/
+.onoffswitch {
+    position: relative;
+    width: 140px;
+    margin-right: 15px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.onoffswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    -moz-transition: margin .3s ease-in 0s;
+    -webkit-transition: margin .3s ease-in 0s;
+    -o-transition: margin .3s ease-in 0s;
+    transition: margin .3s ease-in 0s
+}
+
+.onoffswitch-inner > div {
+    float: left;
+    position: relative;
+    width: 50%;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+    font-size: 12px;
+    color: #fff;
+    font-weight: 700;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.onoffswitch-inner .onoffswitch-active {
+    background-color: #d4d4d4;
+    color: #FFF
+}
+
+.onoffswitch-inner .onoffswitch-inactive {
+    background-color: #d4d4d4;
+    color: #FFF;
+    text-align: right
+}
+
+.onoffswitch-switch {
+    width: 70px;
+    margin: 0;
+    text-align: center;
+    border: 0 solid #999;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0
+}
+
+.onoffswitch-active .onoffswitch-switch {
+    background: #0073aa;
+    left: 0
+}
+
+.onoffswitch-inactive .onoffswitch-switch {
+    background: #7D7D7D;
+    right: 0
+}
+.switch-on .onoffswitch-inner {
+    margin-left: 0
+}
+
+/**
+ * Customizer Page Layout 
+*/
+.image label{
+    position: relative;
+    margin: 0 3% 3% 0;
+    display: inline-block;
+    width: 46%;
+}
+
+.image input{
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.image img{
+    display: block;
+    border:2px solid #F6F6F6;
+}
+
+.image input:checked + img{
+    border:2px solid #CCC;
+}
+
+.radio-image-wrapper{
+    display: inline-block;
+    text-align: center;
+    margin: 20px;
+}
+
+/**
+ * Multiple Gallery Upload Image
+*/
+.gallery-screenshot{
+  margin-bottom: 10px;
+  margin-left: -5px;
+  margin-right: -5px;
+}
+
+.gallery-screenshot .screen-thumb{
+  width: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 5px;
+}
+
+.gallery-screenshot .screen-thumb:nth-child(2n+1){
+    clear: both;
+}
+
+.gallery-screenshot .screen-thumb img{ 
+  border: 1px solid #EEE;
+  vertical-align: middle;
+}
+
+#clear-gallery{
+  float: right;
+}
+
+/**
+ * Section Re Order/Sortable
+*/
+#tm-sections-reorder li {
+    border: 1px solid #dfdfdf;
+    cursor: move !important;
+    font-weight: bold;
+    padding: 0 10px !important;
+    height: 40px;
+    line-height: 40px !important;
+    background-color: #f1f1f1;
+    background-image: -ms-linear-gradient(top, #f9f9f9, #ececec);
+    background-image: -moz-linear-gradient(top, #f9f9f9, #ececec);
+    background-image: -o-linear-gradient(top, #f9f9f9, #ececec);
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#f9f9f9), to(#ececec));
+    background-image: -webkit-linear-gradient(top, #f9f9f9, #ececec);
+    background-image: linear-gradient(top, #f9f9f9, #ececec);
+    overflow: hidden;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: inset 0 1px 0 #fff;
+    -webkit-box-shadow: inset 0 1px 0 #fff;
+    box-shadow: inset 0 1px 0 #fff;
+    text-align: center;
+    color: #696969;
+}
+
+#accordion-section-educenter_homepage_section_reorder h3.accordion-section-title,
+#accordion-section-educenter_homepage_section_reorder h3.accordion-section-title:hover,
+#accordion-panel-educenter_homepage_settings h3.accordion-section-title,
+#accordion-panel-educenter_homepage_settings h3.accordion-section-title:hover{
+    background: #0073aa;
+    color: #fff;
+}
+
+/**
+ * Widget Color
+ */
+#widget-list [id*='_educenter_'] .widget-top, 
+#widget-list [id*='_educenter_'] h3 {
+    background: #004b8e;
+    color: #fff;
+}
+
+
+/**
+ * Page Features Icon picker
+*/
+.sp-icons-wrapper .icons-list-wrapper{
+    height: 180px;
+    overflow-y: scroll;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+.sp-icons-wrapper .icons-list-wrapper span{
+    display: block;
+    float: left;
+    padding: 14px;
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+.sp-icons-wrapper .icons-list-wrapper span:hover,
+.sp-icons-wrapper .icons-list-wrapper span.selected {
+    background: #2d2d2d;
+    color: #fff;
+}
+.icon-preview,
+.icon-toggle{
+    background: #2d2d2d;
+    height: 40px;
+    text-align: center;
+    margin-bottom: 5px;
+    border: 1px solid #2D2D2D;
+    border-radius: 8px;
+    color: #fff;
+    padding-bottom: 3px;
+    display: inline-block;
+    min-width: 40px;
+    cursor: pointer;
+}
+.icon-preview i {
+    font-size: 25px;
+    padding: 9px;
+}
+.icon-toggle,
+.icon-toggle span {
+    background: transparent;
+    border: none;
+    color: #2d2d2d;
+    float: right;
+    font-size: 17px;
+    line-height: 40px;
+}
+.icon-toggle span {
+    font-size: 20px;
+}
+.single-icon{
+    cursor: pointer;
+}
+
+/**
+ * Page Layout Metabox CSS
+*/
+.slidercat {
+    float: right;
+    margin-right: 20px;
+}
+
+.customize-pane-parent #accordion-section-fitness-park .accordion-section-title:before {
+  content: "\f10f";
+}
+
+.customize-pane-parent #accordion-panel-fitness_park_general_settings_panel .accordion-section-title:before {
+  content: "\f107";
+}
+
+.customize-pane-parent #accordion-panel-fitness_park_footer .accordion-section-title:before {
+  content: "\f111";
+}
