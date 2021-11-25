@@ -100,10 +100,10 @@ function contact_form(){
     
     echo '<form method="POST">
     <h3> Formulaire de contact <h3>
-    <input type="text" name="name_contact" class="form-control" placeholder="Prénom Nom" required/>
-    <input type="text" name="email" class="form-control" placeholder="email" required/>
-    <input type="text" name="content" class="form-control" placeholder="Votre message" required/>
-    <input type="submit" name="contact" class="btn btn-primary" value="Envoyer"/>
+    <input type="text" name="name_contact" class="form-control mb-4" placeholder="Prénom Nom" style="color:black;" required/>
+    <input type="text" name="email" class="form-control mb-4" placeholder="Email" style="color:black;" required/>
+    <textarea class="form-control mb-4" name="content" id="textAreaExample" rows="4" name="content" style="color:black;" required></textarea>
+    <button type="submit" name="contact" class="btn btn-info btn-block mb-4">ENVOYER</button>
     </form>';
 
     return ob_get_clean();

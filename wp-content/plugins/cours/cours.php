@@ -33,35 +33,35 @@ function cours_init() {
   
 add_action('init', 'cours_init');
 
-// Add meta box place to event
-function add_event_place_meta_box() {
-	function event_place($post) {
-	  $place = get_post_meta($post->ID, 'event_place', true);
+// Add meta box place to cours
+function add_cours_place_meta_box() {
+	function cours_place($post) {
+	  $place = get_post_meta($post->ID, 'cours_place', true);
   
 	  if (empty($place)) $place = the_content();
   
-	  echo '<input type="place" name="event_place" value="' . $place  . '" />';
+	  echo '<input type="place" name="cours_place" value="' . $place  . '" />';
 	}
   
-	add_meta_box('event_place_meta_boxes', 'Place', 'event_place', 'events', 'side', 'default');
+	add_meta_box('cours_place_meta_boxes', 'Place', 'cours_place', 'cours', 'side', 'default');
 }
   
-add_action('add_meta_boxes', 'add_event_place_meta_box');
+add_action('add_meta_boxes', 'add_cours_place_meta_box');
 
-// Add meta box price to event
-function add_event_price_meta_box() {
-	function event_price($post) {
-	  $price = get_post_meta($post->ID, 'event_price', true);
+// Add meta box price to cours
+function add_cours_price_meta_box() {
+	function cours_price($post) {
+	  $price = get_post_meta($post->ID, 'cours_price', true);
   
 	  if (empty($price)) $price = the_content();
   
-	  echo '<input type="price" name="event_price" value="' . $price  . '" />';
+	  echo '<input type="price" name="cours_price" value="' . $price  . '" />';
 	}
   
-	add_meta_box('event_price_meta_boxes', 'Price', 'event_price', 'events', 'side', 'default');
+	add_meta_box('cours_price_meta_boxes', 'Price', 'cours_price', 'cours', 'side', 'default');
 }
   
-add_action('add_meta_boxes', 'add_event_price_meta_box');
+add_action('add_meta_boxes', 'add_cours_price_meta_box');
 
 // first step : create DB reservation
 function reservation_database(){
@@ -75,7 +75,7 @@ function reservation_database(){
         name_user varchar (55) NOT NULL, 
         phone int(6) NOT NULL,
         email varchar (55) NOT NULL, 
-        name_course text(55) NOT NULL,
+        post_id mediumint(9) NOT NULL,
         place int(2) NULL, 
         PRIMARY KEY (id)
     ) $charset_collate;";
@@ -86,21 +86,6 @@ function reservation_database(){
 }
 
 register_activation_hook(__FILE__, 'reservation_database');
-
-// Step 2 : creat default data
-function insert_reservation(){
-  global $wpdb; 
-
-  $table_name = $wpdb->prefix .'reservations';
-
-  $sql = "INSERT INTO $table_name (name_user, phone, email, name_course, place) VALUES ('Test test', '123456','test@test.nc', 'test', '1');";
-
-  require_once(ABSPATH . 'wp-admin/includes/update.php');
-  dbDelta($sql);
-  add_option('reservation_db_version' , '1.0');
-}
-
-register_activation_hook(__FILE__, 'insert_reservation');
 
 // Third step : add plugin to admin
 function add_plugin_reservation_to_admin(){
@@ -122,6 +107,85 @@ function add_plugin_reservation_to_admin(){
   }
 
   add_menu_page('Reservations', 'Reservations', 'manage_options', 'reservation-plugin', 'reservation_content');
+
+  // Add submenu reservation 
+  function submenu_reservation_form() {
+		global $wpdb;
+		$table_name = $wpdb->prefix . 'posts';
+		$courses = $wpdb->get_results("SELECT * FROM $table_name WHERE post_type='cours' AND post_status = 'publish'", ARRAY_A);
+
+		if (isset($_REQUEST['id'])) {
+			$table_name = $wpdb->prefix . 'reservations';
+			$reservation = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $_REQUEST['id']));
+		}
+
+		echo "<h1>Modification Réservation</h1>";
+		echo "<div style='margin-right:20px'>";
+		echo "<form method='POST'>";
+		echo "<input type='text' name='name_user' placeholder='Prénom Nom' " . (!isset($reservation) ? "" : "value='" . $reservation->name_user . "'") . " required><br>";
+		echo "<input type='text' name='phone' placeholder='Téléphone' " . (!isset($reservation) ? "" : "value='" . $reservation->phone . "'") . " required><br>";
+    echo "<input type='text' name='email' placeholder='Email' " . (!isset($reservation) ? "" : "value='" . $reservation->email . "'") . " required><br>";
+		echo "<select name='post_id'>";
+      foreach ($courses as $course) {
+        echo "<option value='" . $course['ID'] . "' " . (isset($reservation) && $reservation->post_id == $course['ID'] ? "selected" : "") . ">" . $course['post_title'] . "</option>";
+      }
+		echo "</select><br>";
+		echo "<input type='text' name='place' placeholder='Place' " . (!isset($reservation) ? "" : "value='" . $reservation->place . "'") . " required><br>";
+    echo "<input type='submit' name='reservation' value='Envoyez'>";
+		echo "</form>";
+		echo "</div>";
+
+    if (isset($_POST['reservation'])) {
+			$name_user = sanitize_text_field($_POST["name_user"]);
+			$phone = sanitize_text_field($_POST["phone"]);
+      $email = sanitize_text_field($_POST["email"]);
+			$post_id = $_POST["post_id"];
+      $place = sanitize_text_field($_POST["place"]);
+	
+			if ($name_user != '' && $phone != '' && $email != '' && $place != '') {
+				global $wpdb;
+	
+				$table_name = $wpdb->prefix . 'reservations';
+		
+				if (isset($reservation)) {
+					$wpdb->update( 
+						$table_name,
+						array( 
+							'name_user' => $name_user,
+							'phone' => $phone,
+              'email' => $email,
+							'post_id' => $post_id,
+              'place' => $place,
+						),
+						array( 
+							'id' => $reservation->id,
+						),
+            
+					);
+          var_dump($table_name);
+					echo "<h4>Réservation mise à jour.</h4>";
+          
+				} else {
+					$wpdb->insert( 
+						$table_name,
+						array( 
+							'name_user' => $name_user,
+							'phone' => $phone,
+              'email' => $email,
+							'post_id' => $post_id,
+              'place' => $place,
+						)
+					);
+
+          
+
+					echo "<h4>Réservation créée</h4>";
+				}
+			}
+		}
+	}
+
+	add_submenu_page('reservations', 'Réservation', 'Ajouter', 'edit_posts', 'reservation', 'submenu_reservation_form');
 }
 
 add_action('admin_menu', 'add_plugin_reservation_to_admin');
@@ -130,16 +194,23 @@ add_action('admin_menu', 'add_plugin_reservation_to_admin');
 function reservation_course_form(){
   ob_start();
   global $wpdb;
+		$table_name = $wpdb->prefix . 'posts';
+		$courses = $wpdb->get_results("SELECT * FROM $table_name WHERE post_type='cours' AND post_status = 'publish'; ", ARRAY_A);
+
+		if (isset($_REQUEST['id'])) {
+			$table_name = $wpdb->prefix . 'reservations';
+			$reservation = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $_REQUEST['id']));
+		}
 
   if (isset($_POST['reservations'])) {
       $name_user = sanitize_text_field($_POST['name_user']);
       $phone = sanitize_text_field($_POST['phone']);
       $email = sanitize_text_field($_POST['email']);
-      $name_course = sanitize_text_field($_POST['name_course']);
+      $post_id = ($_POST['post_id']);
       $place = sanitize_text_field($_POST['place']);
   
       
-      if (!empty($name_user) && !empty($phone) && !empty($email) && !empty($name_course) && !empty($place)) {
+      if (!empty($name_user) && !empty($phone) && !empty($email) && !empty($place)) {
         $table_name = $wpdb->prefix . 'reservations';
 
         $wpdb->insert(
@@ -147,7 +218,7 @@ function reservation_course_form(){
             'name_user' => $name_user,
             'phone' => $phone,
             'email' => $email,
-            'name_course' => $name_course,
+            'post_id' => $post_id,
             'place' => $place
           )
         );
@@ -156,24 +227,20 @@ function reservation_course_form(){
       }
 
   }
-
-  $table_name = $wpdb->prefix . 'posts';
-  $results = $wpdb->get_results("SELECT * FROM $table_name WHERE post_type = 'cours' AND post_status = 'publish';", ARRAY_A);
-  // var_dump($result);
   
   echo '<form method="POST">
   <h3>Formulaire de réservation <h3>
-  <input type="text" name="name_user" class="form-control" placeholder="Prénom" required/>
-  <input type="number" name="phone" class="form-control" placeholder="Phone" required/>
-  <input type="email" name="email" class="form-control" placeholder="email" required/>
-  <select name="name_course" class="form-select">
+  <input type="text" name="name_user" class="form-control mb-4" placeholder="Prénom NOM" style="color:black;" required/>
+  <input type="number" name="phone" class="form-control mb-4" placeholder="Téléphone" style="color:black;" required/>
+  <input type="email" name="email" class="form-control mb-4" placeholder="Email" style="color:black;" required/>
+  <select class="form-control mb-4" name="post_id" class="form-select">
       <option value=""> Choisir un evenement </option>'; 
-      foreach ($results as $result) {
-      echo '<option value="'. $result["post_title"] .'">'. $result["post_title"] . '</option>';
-      };
+      foreach ($courses as $course) {
+        echo "<option value='" . $course['ID'] . "' " . (isset($reservation) && $reservation->post_id == $course['ID'] ? "selected" : "") . ">" . $course['post_title'] . "</option>";
+      }
   echo '</select>
-  <input type="number" name="place" class="form-control" placeholder="place" required/>
-  <input type="submit" name="reservations" class="btn btn-primary" value="Envoyer"/>
+  <input type="number" name="place" class="form-control mb-4" placeholder="Nombre de participants" style="color:black;" required/>
+  <button type="submit" name="reservations" class="btn btn-info btn-block mb-4">ENVOYER</button>
   </form>';
 
   return ob_get_clean();

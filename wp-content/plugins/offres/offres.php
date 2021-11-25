@@ -58,7 +58,8 @@ function abonnement_database(){
     $sql = "CREATE TABLE IF NOT EXISTS $table_name (
         id mediumint (9) NOT NULL AUTO_INCREMENT,
         name_user varchar (55) NOT NULL, 
-        name_abonnement varchar(25) NOT NULL,
+        email varchar (55) NOT NULL, 
+        post_id mediumint(9) NOT NULL,
         PRIMARY KEY (id)
     ) $charset_collate;";
 
@@ -68,21 +69,6 @@ function abonnement_database(){
 }
 
 register_activation_hook(__FILE__, 'abonnement_database');
-
-// Step 2 : creat default data
-function insert_abonnement(){
-  global $wpdb; 
-
-  $table_name = $wpdb->prefix .'abonnements';
-
-  $sql = "INSERT INTO $table_name (name_user, name_abonnement) VALUES ('Test test', 'Offre annuel');";
-
-  require_once(ABSPATH . 'wp-admin/includes/update.php');
-  dbDelta($sql);
-  add_option('abonnement_db_version' , '1.0');
-}
-
-register_activation_hook(__FILE__, 'insert_abonnement');
 
 // Third step : add plugin to admin
 function add_plugin_abonnement_to_admin(){
@@ -113,38 +99,45 @@ function abonnement_course_form(){
   ob_start();
   global $wpdb;
 
-  if (isset($_POST['abonnements'])) {
-      $name_user = sanitize_text_field($_POST['name_user']);
-      $name_abonnement = sanitize_text_field($_POST['name_abonnement']);
-  
-      
-      if (!empty($name_user) && !empty($name_abonnement)) {
-        $table_name = $wpdb->prefix . 'abonnements';
+  $table_name = $wpdb->prefix . 'posts';
+  $offres = $wpdb->get_results("SELECT * FROM $table_name WHERE post_type='offres' AND post_status = 'publish'; ", ARRAY_A);
 
-        $wpdb->insert(
-          $table_name, array(
-            'name_user' => $name_user,
-            'name_abonnement' => $name_abonnement,
-          )
-        );
-
-        echo 'Merci pour votre inscription !';
-      }
-
+  if (isset($_REQUEST['id'])) {
+    $table_name = $wpdb->prefix . 'abonnements';
+    $abonnement = $wpdb->get_row($wpdb->prepare("SELECT * FROM $table_name WHERE id = %d", $_REQUEST['id']));
   }
 
-  $table_name = $wpdb->prefix . 'posts';
-  $results = $wpdb->get_results("SELECT * FROM $table_name WHERE post_type = 'offres' AND post_status = 'publish';", ARRAY_A);
-  // var_dump($result);
+if (isset($_POST['abonnements'])) {
+    $name_user = sanitize_text_field($_POST['name_user']);
+    $email = sanitize_text_field($_POST['email']);
+    $post_id = ($_POST['post_id']);
+
+    
+    if (!empty($name_user) && !empty($email)) {
+      $table_name = $wpdb->prefix . 'abonnements';
+
+      $wpdb->insert(
+        $table_name, array(
+          'name_user' => $name_user,
+          'email' => $email,
+          'post_id' => $post_id,
+        )
+      );
+
+      echo 'Merci pour votre abonnement !';
+    }
+
+}
   
   echo '<form method="POST">
-  <h3>Formulaire abonnement <h3>
-  <input type="text" name="name_user" class="form-control" placeholder="Prénom Nom" required/>
-  <select name="name_abonnement" class="form-select">
+  <h3>Formulaire de réservation <h3>
+  <input type="text" name="name_user" class="form-control" placeholder="Prénom"  style="color:black;" required/>
+  <input type="email" name="email" class="form-control" placeholder="email"  style="color:black;" required/>
+  <select name="post_id" class="form-select">
       <option value=""> Choisir un abonnement </option>'; 
-      foreach ($results as $result) {
-      echo '<option value="'. $result["post_title"] .'">'. $result["post_title"] . '</option>';
-      };
+      foreach ($offres as $offre) {
+        echo "<option value='" . $offre['ID'] . "' " . (isset($abonnement) && $abonnement->post_id == $offre['ID'] ? "selected" : "") . ">" . $offre['post_title'] . "</option>";
+      }
   echo '</select>
   <input type="submit" name="abonnements" class="btn btn-primary" value="Envoyer"/>
   </form>';
