@@ -7,7 +7,6 @@ class ReservationListTable extends WP_List_Table {
         $hidden = array();
         $sortable = array();
         $data = $this->get_data();
-
         $this->_column_headers = array($columns, $hidden, $sortable);
         $this->items = $data;
     }
@@ -15,7 +14,6 @@ class ReservationListTable extends WP_List_Table {
     function column_id($item){
         $actions = array (
             'edit' => sprintf('<a href="?page=reservation&id=%s">%s</a>', $item['id'], 'Modifier'),
-            'delete' => sprintf('<a href="?page=reservations&action=delete&id=%s">%s</a>', $item['id'], 'Supprimer'),
         );
 
         return sprintf('%s %s',
