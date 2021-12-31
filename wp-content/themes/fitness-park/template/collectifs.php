@@ -3,12 +3,22 @@
 Template Name: cours collectifs
 */
 get_header();
+if (!is_front_page() || !is_home()) {
+  /**
+   * @hook fitness_park_breadcrumbs.
+   *
+   * @hooked fitness_park_breadcrumbs.
+   *
+   */
+  do_action('fitness_park_breadcrumbs');
+}
 ?>
+<div style="margin:3%;"></div>
 <div class="container-fluid mb-3">
   <div class="card" style="max-width: 75%; margin:auto;" >
     <div class="row g-0">
       <div class="col-md-6">
-        <img src="http://localhost/optimum/wp-content/uploads/2021/11/jonathan-borba-VtCaDJ-WfOA-unsplash-scaled.jpg" class="img-fluid rounded-start" alt="...">
+        <img src="http://localhost/ecf_optimum/wp-content/uploads/2021/12/preparation-physique.jpg" class="img-fluid rounded-start" alt="...">
       </div>
       <div class="col-md-6">
         <div class="card-body">
@@ -30,12 +40,12 @@ get_header();
 
 </div>
 
+<div style="margin:8%;"></div>
+
 <div class="container-fluid mb-3">
   <div class="card" style="max-width: 75%; margin:auto;" >
     <div class="row g-0">
-      <div class="col-md-6">
-        <img src="http://localhost/optimum/wp-content/uploads/2021/11/sven-mieke-Lx_GDv7VA9M-unsplash-scaled.jpg" class="img-fluid rounded-start" alt="...">
-      </div>
+     
       <div class="col-md-6">
         <div class="card-body">
           <h3 class="card-title">Cross training</h3>
@@ -51,9 +61,15 @@ get_header();
             </ul>
         </div>
       </div>
+
+      <div class="col-md-6">
+        <img src="http://localhost/ecf_optimum/wp-content/uploads/2021/12/cross_training.jpg" class="img-fluid rounded-start" alt="...">
+      </div>
     </div>
   </div>
 
 </div>
+
+<div style="margin:3%;"></div>
 
 <?php get_footer() ?>

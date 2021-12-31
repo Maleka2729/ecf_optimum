@@ -90,16 +90,5 @@
 
         <!-- breadcrumbs -->
 
-        <?php
-    if (!is_front_page() || !is_home()) {
-        /**
-         * @hook fitness_park_breadcrumbs.
-         *
-         * @hooked fitness_park_breadcrumbs.
-         *
-         */
-        do_action('fitness_park_breadcrumbs');
-    }
-    ?>
 
         <div class="mt-3 mb-3" id="content" class="site-content">

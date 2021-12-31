@@ -127,19 +127,19 @@ if (isset($_POST['abonnements'])) {
       echo 'Merci pour votre abonnement !';
     }
 
-}
+  }
   
-  echo '<form method="POST">
-  <h3>Formulaire de réservation <h3>
-  <input type="text" name="name_user" class="form-control" placeholder="Prénom"  style="color:black;" required/>
-  <input type="email" name="email" class="form-control" placeholder="email"  style="color:black;" required/>
-  <select name="post_id" class="form-select">
+  echo '<form class="mt-5" method="POST">
+  <h3>Formulaire inscription abonnement <h3>
+  <input type="text" name="name_user" class="form-control mb-4" placeholder="Prénom"  style="color:black;" required/>
+  <input type="email" name="email" class="form-control mb-4" placeholder="email"  style="color:black;" required/>
+  <select name="post_id" class="form-control mb-4" >
       <option value=""> Choisir un abonnement </option>'; 
       foreach ($offres as $offre) {
         echo "<option value='" . $offre['ID'] . "' " . (isset($abonnement) && $abonnement->post_id == $offre['ID'] ? "selected" : "") . ">" . $offre['post_title'] . "</option>";
       }
   echo '</select>
-  <input type="submit" name="abonnements" class="btn btn-primary" value="Envoyer"/>
+  <button type="submit" name="abonnements" class="btn btn-info btn-block mb-4">ENVOYER</button>
   </form>';
 
   return ob_get_clean();

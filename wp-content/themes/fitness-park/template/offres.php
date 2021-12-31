@@ -3,6 +3,17 @@
 Template Name: offres 
 */
 get_header();
+    if (!is_front_page() || !is_home()) {
+        /**
+         * @hook fitness_park_breadcrumbs.
+         *
+         * @hooked fitness_park_breadcrumbs.
+         *
+         */
+        do_action('fitness_park_breadcrumbs');
+    }
+
+
 ?>
 
 <div class="container mb-3">
@@ -18,7 +29,7 @@ get_header();
     <div class="row justify-content-center">
         <div class="col-5">
             <div class="card">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="card-img-top" alt="..." />
+                <img src="http://localhost/ecf_optimum/wp-content/uploads/2021/12/mensuel.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                     <h4 class="card-title">ABONNEMENT MENSUEL</h4>
                     <p class="card-text">
@@ -30,7 +41,7 @@ get_header();
         </div>
         <div class="col-5">
             <div class="card">
-                <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="card-img-top" alt="..." />
+                <img src="http://localhost/ecf_optimum/wp-content/uploads/2021/12/annuelle.jpg" class="card-img-top" alt="..." />
                 <div class="card-body">
                     <h4 class="card-title">ABONNEMENT ANNUEL</h4>
                     <p class="card-text">

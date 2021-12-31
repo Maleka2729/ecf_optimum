@@ -233,7 +233,7 @@ function reservation_course_form(){
   <input type="text" name="name_user" class="form-control mb-4" placeholder="Prénom NOM" style="color:black;" required/>
   <input type="number" name="phone" class="form-control mb-4" placeholder="Téléphone" style="color:black;" required/>
   <input type="email" name="email" class="form-control mb-4" placeholder="Email" style="color:black;" required/>
-  <select class="form-control mb-4" name="post_id" class="form-select">
+  <select class="form-control mb-4" name="post_id">
       <option value=""> Choisir un evenement </option>'; 
       foreach ($courses as $course) {
         echo "<option value='" . $course['ID'] . "' " . (isset($reservation) && $reservation->post_id == $course['ID'] ? "selected" : "") . ">" . $course['post_title'] . "</option>";
