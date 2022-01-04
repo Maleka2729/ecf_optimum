@@ -35,7 +35,8 @@ Il souhaite aussi, rendre son site internet accessible sur mobile. Egalement, un
   - Réservations : formulaire de réservation  
   - Contact : formulaire de contact
 
-## Choix navigation sur le site : 
-  - A FAIRE [....]
+## Maquette : 
+  - Le maquettage a été réalisé avec l'application web Figma. Ci-joint le lien pour accéder aux maquette : 
+    - https://www.figma.com/file/qgsvPgSJQwRsQWQiLNBgj5/OPTIMUM?node-id=0%3A1
 
 
