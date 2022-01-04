@@ -254,3 +254,6 @@ add_filter( 'fitness_park_enable_front_page', 'fitness_park_front_page_set' );
  * Load Files.
  */
 require get_template_directory() . '/inc/init.php';
+
+// remove version wp 
+remove_action('wp_head', 'wp_generator');

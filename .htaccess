@@ -13,4 +13,11 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /ecf_optimum/index.php [L]
 </IfModule>
 
+<files readme.html>
+deny from all
+</files>
+<files license.txt>
+deny from all
+</files>
+
 # END WordPress
