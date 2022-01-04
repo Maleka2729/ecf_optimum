@@ -39,4 +39,13 @@ Il souhaite aussi, rendre son site internet accessible sur mobile. Egalement, un
   - Le maquettage a été réalisé avec l'application web Figma. Ci-joint le lien pour accéder aux maquette : 
     - https://www.figma.com/file/qgsvPgSJQwRsQWQiLNBgj5/OPTIMUM?node-id=0%3A1
 
+## Sécurité :
+Au niveau de la sécurité, plusieurs actions ont été réalisés : 
+  - Utilisation de mot de passe sécurisée
+  - Modification du préfixe de la base de données
+  - Supression du compte administrateur par défaut
+  - Masquer la version de Wordpress
+  - Ajouter des clés de sécurité secrètes dans le fichier wp-config.php
+  - Bloquer l'accès au fichier README.HTML
+
 
