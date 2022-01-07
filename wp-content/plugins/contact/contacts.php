@@ -88,7 +88,7 @@ function contact_form(){
             )
           );
 
-          echo 'Merci pour votre inscription !';
+          echo 'Nous vous recontacterons bientôt !';
         }
 
     }
