@@ -31,7 +31,7 @@ define( 'DB_USER', 'malekalita' );
 define( 'DB_PASSWORD', 'devweb2022' );
 
 /** Adresse de l’hébergement MySQL. */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', '127.0.0.1' );
 
 /** Jeu de caractères à utiliser par la base de données lors de la création des tables. */
 define( 'DB_CHARSET', 'utf8mb4' );
