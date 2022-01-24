@@ -38,16 +38,28 @@ Il souhaite aussi, rendre son site internet accessible sur mobile. Egalement, un
 ## Maquette : 
   - Le maquettage a été réalisé avec l'application web Figma. Ci-joint le lien pour accéder aux maquette : 
     - Page d'accueil :
-    ![Capture 1](https://user-images.githubusercontent.com/67027958/150721485-231af81e-b789-498e-a98a-fd27cfe8cbf2.PNG)
+      - ![Capture 1](https://user-images.githubusercontent.com/67027958/150721485-231af81e-b789-498e-a98a-fd27cfe8cbf2.PNG)
     
     - Cours particuliers : 
-    - Cours collectifs :
-    - Cours de Yoga :
-    - Les offres :
-    - Formulaire de réservation - Cours particuliers :
-    - Formulaire de réservation - Cours collectifs :
-    - Formulaire de contact :
+      - ![Capture 2](https://user-images.githubusercontent.com/67027958/150723857-63cc6de1-44e5-4362-9b0a-c12357c2f5f3.PNG)
 
+    - Cours collectifs :
+      - ![Capture 3](https://user-images.githubusercontent.com/67027958/150723921-5d111a20-26ec-40fa-95cf-0fcfae94da31.PNG)
+
+    - Cours de Yoga :
+      - ![Capture 4](https://user-images.githubusercontent.com/67027958/150723944-841ad2da-278e-41d3-8514-5842c2b586cf.PNG)
+
+    - Les offres :
+      - ![Capture 5](https://user-images.githubusercontent.com/67027958/150723962-f07c172d-bdc0-4966-8966-4b55092c97d1.PNG)
+
+    - Formulaire de réservation - Cours particuliers :
+      - ![Capture 6](https://user-images.githubusercontent.com/67027958/150723988-a842d330-d746-4400-a1f7-65b0cf2daa14.PNG)
+
+    - Formulaire de réservation - Cours collectifs :
+      - ![Capture 7](https://user-images.githubusercontent.com/67027958/150724010-7fa8e4a3-75a9-4135-8d75-035666147bc7.PNG)
+    
+    - Formulaire de contact :
+      - ![Capture 8](https://user-images.githubusercontent.com/67027958/150724035-e4ecac1d-9a68-45b1-8926-d4607fe45a41.PNG)
 
 ## Sécurité :
 Au niveau de la sécurité, plusieurs actions ont été réalisés : 
