@@ -37,7 +37,17 @@ Il souhaite aussi, rendre son site internet accessible sur mobile. Egalement, un
 
 ## Maquette : 
   - Le maquettage a été réalisé avec l'application web Figma. Ci-joint le lien pour accéder aux maquette : 
-    - https://www.figma.com/file/qgsvPgSJQwRsQWQiLNBgj5/OPTIMUM?node-id=0%3A1
+    - Page d'accueil :
+    ![Capture 1](https://user-images.githubusercontent.com/67027958/150721485-231af81e-b789-498e-a98a-fd27cfe8cbf2.PNG)
+    
+    - Cours particuliers : 
+    - Cours collectifs :
+    - Cours de Yoga :
+    - Les offres :
+    - Formulaire de réservation - Cours particuliers :
+    - Formulaire de réservation - Cours collectifs :
+    - Formulaire de contact :
+
 
 ## Sécurité :
 Au niveau de la sécurité, plusieurs actions ont été réalisés : 
